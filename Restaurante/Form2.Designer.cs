@@ -31,8 +31,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbPrato = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -53,8 +54,9 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cbBebida = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -62,8 +64,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cbEstacao = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -79,10 +83,10 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(22, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(290, 90);
+            this.groupBox1.Size = new System.Drawing.Size(145, 90);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "mesas";
+            this.groupBox1.Text = "Mesas";
             // 
             // comboBox1
             // 
@@ -107,7 +111,7 @@
             // 
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.richTextBox2);
-            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.cbPrato);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +120,17 @@
             this.groupBox2.Size = new System.Drawing.Size(450, 350);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "prato principal";
+            this.groupBox2.Text = "Prato Principal";
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(371, 41);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 45);
+            this.button4.TabIndex = 18;
+            this.button4.Text = "+";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // richTextBox2
             // 
@@ -125,18 +139,18 @@
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(170, 230);
             this.richTextBox2.TabIndex = 16;
-            this.richTextBox2.Text = "amor\ncarinhho\nelemetno x\nmorte \namor denovo\nmagia";
+            this.richTextBox2.Text = "";
             // 
-            // comboBox4
+            // cbPrato
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.cbPrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPrato.FormattingEnabled = true;
+            this.cbPrato.Items.AddRange(new object[] {
             "será"});
-            this.comboBox4.Location = new System.Drawing.Point(10, 41);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(272, 45);
-            this.comboBox4.TabIndex = 8;
+            this.cbPrato.Location = new System.Drawing.Point(10, 41);
+            this.cbPrato.Name = "cbPrato";
+            this.cbPrato.Size = new System.Drawing.Size(272, 45);
+            this.cbPrato.TabIndex = 8;
             // 
             // pictureBox1
             // 
@@ -156,7 +170,7 @@
             "3",
             "4",
             "5"});
-            this.comboBox3.Location = new System.Drawing.Point(293, 41);
+            this.comboBox3.Location = new System.Drawing.Point(288, 41);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(45, 45);
             this.comboBox3.TabIndex = 8;
@@ -181,7 +195,7 @@
             this.groupBox4.Size = new System.Drawing.Size(737, 290);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "sobremesa";
+            this.groupBox4.Text = "Sobremesa";
             // 
             // comboBox10
             // 
@@ -250,7 +264,7 @@
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(141, 230);
             this.richTextBox4.TabIndex = 18;
-            this.richTextBox4.Text = "amor\ncarinhho\nelemetno x\nmorte \namor denovo\nmagia";
+            this.richTextBox4.Text = "";
             // 
             // pictureBox3
             // 
@@ -330,15 +344,6 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
-            this.listBox1.Items.AddRange(new object[] {
-            "Nome Legal e Bonito",
-            "Nome interessante",
-            "Super Mega Hiper Nome",
-            "Nome",
-            "Nomezinho",
-            "Nome Muito Grande Mesmo Tipo",
-            "Meudeusporquetatudojunfo OI",
-            " "});
             this.listBox1.Location = new System.Drawing.Point(761, 534);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(335, 229);
@@ -349,16 +354,16 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1063, 88);
+            this.label2.Location = new System.Drawing.Point(1063, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 31);
+            this.label2.Size = new System.Drawing.Size(92, 31);
             this.label2.TabIndex = 8;
-            this.label2.Text = "conta";
+            this.label2.Text = "Conta";
             // 
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(949, 122);
+            this.richTextBox1.Location = new System.Drawing.Point(949, 60);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(323, 340);
             this.richTextBox1.TabIndex = 9;
@@ -369,7 +374,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(329, 49);
+            this.label3.Location = new System.Drawing.Point(472, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 31);
             this.label3.TabIndex = 10;
@@ -379,7 +384,7 @@
             // 
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.richTextBox3);
-            this.groupBox3.Controls.Add(this.comboBox6);
+            this.groupBox3.Controls.Add(this.cbBebida);
             this.groupBox3.Controls.Add(this.pictureBox2);
             this.groupBox3.Controls.Add(this.comboBox7);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -388,7 +393,17 @@
             this.groupBox3.Size = new System.Drawing.Size(450, 350);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "bebida";
+            this.groupBox3.Text = "Bebida";
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(367, 41);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(45, 45);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "+";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // richTextBox3
             // 
@@ -397,16 +412,16 @@
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(170, 230);
             this.richTextBox3.TabIndex = 17;
-            this.richTextBox3.Text = "amor\ncarinhho\nelemetno x\nmorte \namor denovo\nmagia";
+            this.richTextBox3.Text = "";
             // 
-            // comboBox6
+            // cbBebida
             // 
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(10, 41);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(272, 45);
-            this.comboBox6.TabIndex = 8;
+            this.cbBebida.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBebida.FormattingEnabled = true;
+            this.cbBebida.Location = new System.Drawing.Point(10, 41);
+            this.cbBebida.Name = "cbBebida";
+            this.cbBebida.Size = new System.Drawing.Size(272, 45);
+            this.cbBebida.TabIndex = 8;
             // 
             // pictureBox2
             // 
@@ -434,7 +449,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1117, 495);
+            this.button1.Location = new System.Drawing.Point(1117, 534);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 45);
             this.button1.TabIndex = 13;
@@ -445,7 +460,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1117, 546);
+            this.button2.Location = new System.Drawing.Point(1117, 585);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(138, 45);
             this.button2.TabIndex = 14;
@@ -468,7 +483,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(869, 482);
+            this.label4.Location = new System.Drawing.Point(870, 495);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 31);
             this.label4.TabIndex = 17;
@@ -477,38 +492,54 @@
             // richTextBox5
             // 
             this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox5.Location = new System.Drawing.Point(434, 45);
+            this.richTextBox5.Location = new System.Drawing.Point(575, 45);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.Size = new System.Drawing.Size(343, 43);
             this.richTextBox5.TabIndex = 17;
             this.richTextBox5.Text = "";
             // 
-            // button4
+            // groupBox5
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(371, 41);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 45);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "+";
-            this.button4.UseVisualStyleBackColor = true;
+            this.groupBox5.Controls.Add(this.cbEstacao);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(212, 16);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(216, 90);
+            this.groupBox5.TabIndex = 7;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Cardápio";
             // 
-            // button5
+            // cbEstacao
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(367, 41);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(45, 45);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "+";
-            this.button5.UseVisualStyleBackColor = true;
+            this.cbEstacao.FormattingEnabled = true;
+            this.cbEstacao.Items.AddRange(new object[] {
+            "Verão",
+            "Inverno",
+            "Outono",
+            "Primavera"});
+            this.cbEstacao.Location = new System.Drawing.Point(6, 37);
+            this.cbEstacao.Name = "cbEstacao";
+            this.cbEstacao.Size = new System.Drawing.Size(188, 39);
+            this.cbEstacao.TabIndex = 6;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(1009, 406);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(193, 45);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Novo Pedido";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(1284, 787);
+            this.ClientSize = new System.Drawing.Size(1411, 787);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.richTextBox5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button3);
@@ -532,6 +563,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -549,10 +581,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbPrato;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cbBebida;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.CheckBox checkBox5;
@@ -575,5 +607,8 @@
         private System.Windows.Forms.RichTextBox richTextBox5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox cbEstacao;
+        private System.Windows.Forms.Button button6;
     }
 }
