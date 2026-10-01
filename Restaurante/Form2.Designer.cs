@@ -146,7 +146,7 @@
             this.cbPrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPrato.FormattingEnabled = true;
             this.cbPrato.Items.AddRange(new object[] {
-            "será"});
+            ""});
             this.cbPrato.Location = new System.Drawing.Point(10, 41);
             this.cbPrato.Name = "cbPrato";
             this.cbPrato.Size = new System.Drawing.Size(272, 45);
@@ -512,15 +512,11 @@
             // cbEstacao
             // 
             this.cbEstacao.FormattingEnabled = true;
-            this.cbEstacao.Items.AddRange(new object[] {
-            "Verão",
-            "Inverno",
-            "Outono",
-            "Primavera"});
             this.cbEstacao.Location = new System.Drawing.Point(6, 37);
             this.cbEstacao.Name = "cbEstacao";
             this.cbEstacao.Size = new System.Drawing.Size(188, 39);
             this.cbEstacao.TabIndex = 6;
+            this.cbEstacao.SelectedIndexChanged += new System.EventHandler(this.cbEstacao_SelectedIndexChanged);
             // 
             // button6
             // 
@@ -555,6 +551,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form2";
             this.Text = "Tela principal";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
