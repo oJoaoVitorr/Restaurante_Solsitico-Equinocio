@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Restaurante
 {
@@ -99,7 +101,7 @@ namespace Restaurante
 
         private void button2_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = (richTextBox5.Text) + " - " + (comboBox1.Text) + "\n\n" + lista + "Total a pagar: " + total;/* acha um jeito de botar a quantidade de cada item ao lado na lista*/
+           
         }
 
         private void cbEstacao_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,10 +140,7 @@ namespace Restaurante
             string estacao = cbEstacao.Text;
             cbPrato.Items.Clear();
             cbBebida.Items.Clear();
-            if (estacao == "")
-            {
-               checkBox1.Text = "";//PAREI AQUIIIIIIIIIIIIIIIIII
-            }
+            MostrarSobremesas(cbEstacao.Text);
 
             foreach (Alimento alimento in alimento)
             {
@@ -167,6 +166,84 @@ namespace Restaurante
                         cbBebida.Items.Add(alimento.Nome);
                     }
                 }
+            }
+        }
+        private void MostrarSobremesas(string estacao)
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            foreach (Alimento alimento in alimento)
+            {
+                if (alimento.Categoria == "Sobremesa")
+                {
+                    if (estacao == "" || alimento.Estacao == estacao)
+                    {
+                        CheckBox checkBox = new CheckBox();
+                        FlowLayoutPanel linha = new FlowLayoutPanel();
+
+                        linha.AutoSize = true;
+                        linha.WrapContents = false;
+
+                        checkBox.Text = alimento.Nome;
+                        checkBox.AutoSize = false;
+                        checkBox.Width = 220;
+                        checkBox.Margin = new Padding(5);
+                        checkBox.CheckedChanged += CheckBoxSobremesa_CheckedChanged;
+
+                        NumericUpDown quantidade = new NumericUpDown();
+                        quantidade.Minimum = 1;
+                        quantidade.Maximum = 5;
+                        quantidade.Value = 1;
+                        quantidade.Width = 50;
+                        quantidade.Visible = false;
+
+                        linha.Controls.Add(checkBox);
+                        linha.Controls.Add(quantidade);
+
+
+                        flowLayoutPanel1.Controls.Add(linha);
+                    }
+                }
+            }
+        
+        }
+        private void CheckBoxSobremesa_CheckedChanged(object sender, EventArgs e)
+        {
+            int quantidadeSelecionada = 0;
+
+            foreach (Control controle in flowLayoutPanel1.Controls)
+            {
+                if (controle is FlowLayoutPanel painel)
+                {
+                    CheckBox checkBox = painel.Controls[0] as CheckBox;
+                    NumericUpDown quantidade = painel.Controls[1] as NumericUpDown;
+
+                    if (checkBox.Checked)
+                    {
+                        quantidadeSelecionada++;
+                        quantidade.Visible = true;
+                    }
+                    else
+                    {
+                        quantidade.Visible = false;
+
+                        quantidade.Value = 1;
+                    }
+                }
+            }
+
+            if (quantidadeSelecionada > 5)
+            {
+                CheckBox checkBoxAtual = (CheckBox)sender;
+
+                checkBoxAtual.Checked = false;
+
+                MessageBox.Show(
+                    "Você pode escolher no máximo 5 sobremesas diferentes.",
+                    "Limite de sobremesas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
         }
     }
