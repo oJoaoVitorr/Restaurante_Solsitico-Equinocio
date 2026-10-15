@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -14,8 +15,8 @@ namespace Restaurante
 {
     public partial class Form2 : Form
     {
-        int valorbebida = 0, valorprato = 0, valorsobre = 0, total = 0;
-        string lista = "";
+        decimal valor = 0, total = 0;
+        string lista = "", descricao = "";
 
         List<Alimento> alimento = new List<Alimento> {  
         //VERÃO
@@ -88,6 +89,92 @@ namespace Restaurante
                 new Alimento("Pannacotta", "Primavera", "Sobremesa")
         };
 
+        private List<ItemPedido> pedido = new List<ItemPedido>();
+        private List<CheckBox> checkboxes = new List<CheckBox>();
+        private bool atualizandoFiltro = false;
+
+
+        public class ItemPedido
+        {
+            public string Nome { get; set; }
+            public string Categoria { get; set; }
+            public int Quantidade { get; set; }
+            public override string ToString()
+            {
+                return $"{Nome} - {Quantidade}x";
+            }
+        }
+
+        private void AdicionarItem(
+     string nome, string categoria, int quantidade)
+        {
+            if (string.IsNullOrWhiteSpace(nome) || quantidade < 1)
+                return;
+
+            bool existe = alimento.Any(a =>
+                a.Nome == nome && a.Categoria == categoria);
+
+            if (!existe)
+            {
+                MessageBox.Show("Alimento não encontrado.");
+                return;
+            }
+            ItemPedido item = pedido.Find(i =>
+                i.Nome == nome && i.Categoria == categoria);
+
+            if (item != null)
+            {
+
+                item.Quantidade = quantidade;
+            }
+            else
+            {
+                pedido.Add(new ItemPedido
+                {
+                    Nome = nome,
+                    Categoria = categoria,
+                    Quantidade = quantidade
+                });
+            }
+
+            AtualizarPedido();
+        }
+        private void AtualizarPedido()
+        {
+            listBox1.Items.Clear();
+
+            foreach (ItemPedido item in pedido)
+            {
+                listBox1.Items.Add(item);
+            }
+        }
+
+        private void BuscarItem(string nome)
+        {
+            switch (nome)
+            {
+                case "Ceviche":
+                    // pictureBox1.Image = Properties.Resources.ceviche;
+                    richTextBox2.Text = "Descrição do ceviche.";
+                    break;
+
+                case "Tacos":
+                    // pictureBox1.Image = Properties.Resources.tacos;
+                    richTextBox2.Text = "Descrição dos tacos.";
+
+                    break;
+
+                case "Wrap de Frango":
+                    // pictureBox1.Image = Properties.Resources.wrap;
+                    richTextBox2.Text = "Descrição do wrap de frango.";
+                    break;
+
+                default:
+                    pictureBox1.Image = null;
+                    richTextBox2.Clear();
+                    break;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -101,7 +188,7 @@ namespace Restaurante
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cbEstacao_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,36 +225,67 @@ namespace Restaurante
         private void Filtrar()
         {
             string estacao = cbEstacao.Text;
+
+            pedido.RemoveAll(item =>
+                item.Categoria == "Sobremesa" &&
+                estacao != "" &&
+                !alimento.Any(a =>
+                    a.Nome == item.Nome &&
+                    a.Categoria == "Sobremesa" &&
+                    a.Estacao == estacao));
+
             cbPrato.Items.Clear();
             cbBebida.Items.Clear();
-            MostrarSobremesas(cbEstacao.Text);
 
-            foreach (Alimento alimento in alimento)
+            foreach (Alimento item in alimento)
             {
-                if (estacao == "")
+                if (estacao == "" || item.Estacao == estacao)
                 {
-                    if (alimento.Categoria == "Prato Principal")
-                    {
-                        cbPrato.Items.Add(alimento.Nome);
-                    }
-                    else if (alimento.Categoria == "Bebida")
-                    {
-                        cbBebida.Items.Add(alimento.Nome);
-                    }
-                }
-                else if (alimento.Estacao == estacao)
-                {
-                    if (alimento.Categoria == "Prato Principal")
-                    {
-                        cbPrato.Items.Add(alimento.Nome);
-                    }
-                    else if (alimento.Categoria == "Bebida")
-                    {
-                        cbBebida.Items.Add(alimento.Nome);
-                    }
+                    if (item.Categoria == "Prato Principal")
+                        cbPrato.Items.Add(item.Nome);
+
+                    else if (item.Categoria == "Bebida")
+                        cbBebida.Items.Add(item.Nome);
                 }
             }
+
+            MostrarSobremesas(estacao);
+            AtualizarPedido();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AdicionarItem(
+                cbPrato.Text,
+                "Prato Principal",
+                (int)numericUpDown1.Value
+            );
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            {
+                AdicionarItem(
+                    cbBebida.Text,
+                    "Bebida",
+                    (int)numericUpDown2.Value
+                );
+            }
+        }
+
+        private void cbPrato_SelectedIndexChanged(
+        object sender, EventArgs e)
+        {
+            BuscarItem(cbPrato.Text);
+        }
+
+        private void cbBebida_SelectedIndexChanged(
+            object sender, EventArgs e)
+        {
+            BuscarItem(cbBebida.Text);
+        }
+
         private void MostrarSobremesas(string estacao)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -190,13 +308,15 @@ namespace Restaurante
                         checkBox.Margin = new Padding(5);
                         checkBox.CheckedChanged += CheckBoxSobremesa_CheckedChanged;
 
+
                         NumericUpDown quantidade = new NumericUpDown();
+
                         quantidade.Minimum = 1;
                         quantidade.Maximum = 5;
                         quantidade.Value = 1;
                         quantidade.Width = 50;
                         quantidade.Visible = false;
-
+                        quantidade.ValueChanged += QuantidadeSobremesa_ValueChanged;
                         linha.Controls.Add(checkBox);
                         linha.Controls.Add(quantidade);
 
@@ -205,46 +325,102 @@ namespace Restaurante
                     }
                 }
             }
-        
+
         }
+
         private void CheckBoxSobremesa_CheckedChanged(object sender, EventArgs e)
         {
-            int quantidadeSelecionada = 0;
+            CheckBox checkBoxAtual = sender as CheckBox;
 
-            foreach (Control controle in flowLayoutPanel1.Controls)
+            if (checkBoxAtual == null)
+                return;
+
+            FlowLayoutPanel linha = checkBoxAtual.Parent as FlowLayoutPanel;
+
+            if (linha == null)
+                return;
+
+            NumericUpDown quantidade =
+                linha.Controls[1] as NumericUpDown;
+
+            if (quantidade == null)
+                return;
+
+            if (checkBoxAtual.Checked)
             {
-                if (controle is FlowLayoutPanel painel)
+                int selecionadas = 0;
+
+                foreach (Control controle in flowLayoutPanel1.Controls)
                 {
-                    CheckBox checkBox = painel.Controls[0] as CheckBox;
-                    NumericUpDown quantidade = painel.Controls[1] as NumericUpDown;
-
-                    if (checkBox.Checked)
+                    if (controle is FlowLayoutPanel painel)
                     {
-                        quantidadeSelecionada++;
-                        quantidade.Visible = true;
-                    }
-                    else
-                    {
-                        quantidade.Visible = false;
+                        CheckBox cb = painel.Controls[0] as CheckBox;
 
-                        quantidade.Value = 1;
+                        if (cb != null && cb.Checked)
+                            selecionadas++;
                     }
                 }
-            }
 
-            if (quantidadeSelecionada > 5)
-            {
-                CheckBox checkBoxAtual = (CheckBox)sender;
+                if (selecionadas > 5)
+                {
+                    checkBoxAtual.Checked = false;
 
-                checkBoxAtual.Checked = false;
+                    MessageBox.Show(
+                        "Você pode escolher no máximo 5 sobremesas diferentes."
+                    );
 
-                MessageBox.Show(
-                    "Você pode escolher no máximo 5 sobremesas diferentes.",
-                    "Limite de sobremesas",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
+                    return;
+                }
+
+                AdicionarItem(
+                    checkBoxAtual.Text,
+                    "Sobremesa",
+                    (int)quantidade.Value
                 );
+
+                quantidade.Visible = true;
+            }
+            else
+            {
+                pedido.RemoveAll(item =>
+                    item.Nome == checkBoxAtual.Text &&
+                    item.Categoria == "Sobremesa"
+                );
+
+                quantidade.Visible = false;
+                quantidade.Value = 1;
+
+                AtualizarPedido();
+            }
+        }
+        private void QuantidadeSobremesa_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown quantidade = sender as NumericUpDown;
+
+            if (quantidade == null)
+                return;
+
+            FlowLayoutPanel linha = quantidade.Parent as FlowLayoutPanel;
+
+            if (linha == null)
+                return;
+
+            CheckBox checkBox = linha.Controls[0] as CheckBox;
+
+            if (checkBox == null || !checkBox.Checked)
+                return;
+
+            ItemPedido item = pedido.Find(i =>
+                i.Nome == checkBox.Text &&
+                i.Categoria == "Sobremesa"
+            );
+
+            if (item != null)
+            {
+                item.Quantidade = (int)quantidade.Value;
+                AtualizarPedido();
             }
         }
     }
-}
+
+    }
