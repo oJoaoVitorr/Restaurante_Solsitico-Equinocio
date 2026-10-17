@@ -75,6 +75,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -88,6 +89,189 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acai.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aguadecoco.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\batatagratinada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bolocenoura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brownie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cafecanela.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cafecaramelo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camarao.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\canjica.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cappuccino.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carnedepanela.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cervejaamanteigada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ceviche.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chagelado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chagengibre.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chailatte.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chamacacanela.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chapessego.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chocolatequente.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cookies.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crumblemaca.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escondidinhocarne.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fonduechocolate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fonduequeijo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frangoevrilha.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gelatina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gelatinacolorida.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lasanha.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leitemel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\limonada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\limonadarosa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\massafria.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\massapesto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mousse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nhoque.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pannacotta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pave.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pavlova.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peixeprima.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peracanela.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pudim.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refrigerante.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\risotocogumelo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saladadefrutas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saladatropical.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sanduiche.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smoothie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smores.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sopalegumes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sorvete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suco.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sucomaca.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sucotropical.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tacos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tortalimao.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tortamaca.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tortasalgada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vitamina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerveja.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vinhoquente.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
