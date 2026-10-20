@@ -15,7 +15,7 @@ namespace Restaurante
 {
     public partial class Form2 : Form
     {
-        decimal valor = 0, total = 0;
+        decimal valorprato = 0, valorbebida = 0, valorsobremesa = 0, total = 0;
         string lista = "", descricao = "";
 
         List<Alimento> alimento = new List<Alimento> {  
@@ -99,14 +99,21 @@ namespace Restaurante
             public string Nome { get; set; }
             public string Categoria { get; set; }
             public int Quantidade { get; set; }
+            public decimal PrecoUnitario { get; set; }
+
             public override string ToString()
             {
-                return $"{Nome} - {Quantidade}x";
+                decimal subtotal = PrecoUnitario * Quantidade;
+
+                return $"{Nome} - {Quantidade}x - {subtotal:C2}";
             }
         }
 
         private void AdicionarItem(
-     string nome, string categoria, int quantidade)
+                string nome,
+                string categoria,
+                int quantidade,
+                decimal precoUnitario)
         {
             if (string.IsNullOrWhiteSpace(nome) || quantidade < 1)
                 return;
@@ -119,13 +126,14 @@ namespace Restaurante
                 MessageBox.Show("Alimento não encontrado.");
                 return;
             }
+
             ItemPedido item = pedido.Find(i =>
                 i.Nome == nome && i.Categoria == categoria);
 
             if (item != null)
             {
-
                 item.Quantidade = quantidade;
+                item.PrecoUnitario = precoUnitario;
             }
             else
             {
@@ -133,7 +141,8 @@ namespace Restaurante
                 {
                     Nome = nome,
                     Categoria = categoria,
-                    Quantidade = quantidade
+                    Quantidade = quantidade,
+                    PrecoUnitario = precoUnitario
                 });
             }
 
@@ -154,320 +163,394 @@ namespace Restaurante
             switch (nome)
             { //VERAO
                 case "Ceviche":
+                    valorprato = 38.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.ceviche;
-                    richTextBox2.Text = "Descrição do ceviche.";
                     break;
 
                 case "Tacos":
+                    valorprato = 32.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.tacos; 
-                    richTextBox2.Text = "Descrição dos tacos.";
-
                     break;
 
                 case "Wrap de Frango":
+                    valorprato = 29.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.wrap;
-                    richTextBox2.Text = "Descrição do wrap de frango.";
                     break;
 
                 case "Camarão":
+                    valorprato = 46.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.camarao;
-                    richTextBox2.Text = "Descrição do camarão.";
                     break;
 
                 case "Massa Fria":
+                    valorprato = 30.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.massafria;
-                    richTextBox2.Text = "Descrição da massa fria.";
                     break;
 
                 case "Limonada":
+                    valorbebida = 10.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.limonada;
-                    richTextBox3.Text = "Descrição da limonada.";
                     break;
 
                 case "Água de Coco":
-                     pictureBox2.Image = Properties.Resources.aguadecoco;
-                    richTextBox3.Text = "Descrição da água de coco.";
+                    valorbebida = 9.00m;
+                    label3.Text = valorbebida.ToString("C2");
+                    pictureBox2.Image = Properties.Resources.aguadecoco;
                     break;
 
                 case "Suco Natural":
+                    valorbebida = 12.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.suco;
-                    richTextBox3.Text = "Descrição do suco natural.";
                     break;
 
                 case "Cerveja":
+                    valorbebida = 14.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.cerveja;
-                    richTextBox3.Text = "Descrição da cerveja.";
                     break;
+                   
 
                 case "Refrigerante":
+                    valorbebida = 7.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.refrigerante;
-                    richTextBox3.Text = "Descrição do refrigerante.";
                     break;
 
                 case "Sorvete":
+                    valorsobremesa = 12.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.sorvete;
-                    richTextBox4.Text = "Descrição do sorvete.";
                     break;
 
                 case "Salada de Frutas":
+                    valorsobremesa = 14.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.saladadefrutas;
-                    richTextBox4.Text = "Descrição da salada de frutas.";
                     break;
 
                 case "Gelatina":
+                    valorsobremesa = 7.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.gelatina;
-                    richTextBox4.Text = "Descrição da gelatina.";
                     break;
 
                 case "Açaí":
+                    valorsobremesa = 18.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.acai;
-                    richTextBox4.Text = "Descrição do açaí.";
                     break;
 
                 case "Pavê":
+                    valorsobremesa = 13.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.pave;
-                    richTextBox4.Text = "Descrição do pavê.";
                     break;
                     
                     //INVERNO
                 case "Sopa":
+                    valorprato = 22.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.sopalegumes;
-                    richTextBox2.Text = "Sopa da escolha do cliente.";
                     break;
 
                 case "Fondue de Queijo":
+                    valorprato = 42.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.fonduequeijo;
-                    richTextBox2.Text = "Fondue de queijo com pão e vegetais.";
                     break;
 
                 case "Batata Gratinada":
+                    valorprato = 28.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.batatagratinada;
-                    richTextBox2.Text = "Batata gratinada com queijo e creme.";
                     break;
 
                 case "Escondidinho":
+                    valorprato = 34.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.escondidinhocarne;
-                    richTextBox2.Text = "Escondidinho de carne seca com purê de mandioca.";
                     break;
 
                 case "Lasanha":
+                    valorprato = 36.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.lasanha;
-                    richTextBox2.Text = "Lasanha de carne com molho de tomate e queijo.";
                     break;
 
                 case "Chá Mançela":
+                    valorbebida = 10.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.chamacacanela;
-                    richTextBox3.Text = "Chá de maça com canela.";
                     break;  
 
                 case "Chocolate Quente":
+                    valorbebida = 14.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.chocolatequente;
-                    richTextBox3.Text = "Chocolate quente com marshmallow.";
                     break;
 
                 case "Cappuccino":
+                    valorbebida = 12.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.cappuccino;
-                    richTextBox3.Text = "Cappuccino com espuma de leite.";
                     break;
 
                 case "Café com Canela":
+                    valorbebida = 9.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.cafecanela;
-                    richTextBox3.Text = "Café com canela e leite.";
                     break;
 
                  case "Vinho Quente":
+                    valorbebida = 16.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.vinhoquente;
-                    richTextBox3.Text = "Vinho quente com especiarias.";
                     break;
 
                 case "Fondue de Chocolate":
+                    valorsobremesa = 38.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.fonduechocolate;
-                    richTextBox4.Text = "Fondue de chocolate com frutas.";
                     break;
+
                 case "S'mores":
+                    valorsobremesa = 16.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.smores;
-                    richTextBox4.Text = "S'mores com chocolate e marshmallow.";
                     break;
 
                 case "Cookies":
+                    valorsobremesa = 9.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.cookies;
-                    richTextBox4.Text = "Cookies de chocolate.";
                     break;
 
                 case "Torta de Maçã":
+                    valorsobremesa = 15.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.tortamaca;
-                    richTextBox4.Text = "Torta de maçã com canela.";
                     break;
 
                 case "Canjica":
+                    valorsobremesa = 12.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.canjica;
-                    richTextBox4.Text = "Canjica doce com leite e coco.";
                     break;
 
                 //OUTONO
                 case "Risoto de Cogumelos":
+                    valorprato = 39.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.risotocogumelo;
-                    richTextBox2.Text = "Risoto de cogumelos com parmesão.";
                     break;
 
                 case "Sopa de Legumes":
+                    valorprato = 23.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.sopalegumes;
-                    richTextBox2.Text = "Sopa de legumes com ervas.";
                     break;
 
                 case "Torta Salgada":
+                    valorprato = 29.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.tortasalgada;
-                    richTextBox2.Text = "Torta salgada de frango com legumes.";
                     break;
 
                 case "Nhoque":
+                    valorprato = 32.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.nhoque;
-                    richTextBox2.Text = "Nhoque de batata com molho de tomate.";
                     break;
 
                 case "Carne de Panela":
+                    valorprato = 40.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.carnedepanela;
-                    richTextBox2.Text = "Carne de panela com legumes.";
                     break;
 
                 case "Suco de Maçã":
+                    valorbebida = 12.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.sucomaca;
-                    richTextBox3.Text = "Suco de maçã natural.";
                     break;
 
                 case "Chai Latte":
+                    valorbebida = 14.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.chailatte;
-                    richTextBox3.Text = "Chai latte com especiarias.";
                     break;
 
                 case "Café com Caramelo":
+                    valorbebida = 12.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.cafecaramelo;
-                    richTextBox3.Text = "Café com caramelo e leite.";
                     break;
 
                 case "Chá de Gengibre":
+                    valorbebida  = 10.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.chagengibre;
-                    richTextBox3.Text = "Chá de gengibre com limão.";
                     break;
 
                 case "Cerveja Amanteigada":
+                    valorbebida = 15.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.cervejaamanteigada;
-                    richTextBox3.Text = "Cerveja amanteigada com especiarias.";
                     break;
 
                 case "Crumble de Maçã":
+                    valorsobremesa = 16.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.crumblemaca;
-                    richTextBox4.Text = "Crumble de maçã com canela.";
                     break;
 
                 case "Pudim":
+                    valorsobremesa = 10.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.pudim;
-                    richTextBox4.Text = "Pudim de leite condensado.";
                     break;
 
                 case "Brownie":
+                    valorsobremesa = 12.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.brownie;
-                    richTextBox4.Text = "Brownie de chocolate com nozes.";
                     break;
 
                 case "Bolo de Cenoura":
+                    valorsobremesa = 10.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.bolocenoura;
-                    richTextBox4.Text = "Bolo de cenoura com cobertura de chocolate.";
                     break;
 
                 case "Pera com Canela":
+                    valorsobremesa = 12.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.peracanela;
-                    richTextBox4.Text = "Pêra assada com canela e mel.";
                     break;
 
                     //PRIMAVERA
                 case "Salada Tropical":
+                    valorprato = 28.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.saladatropical;
-                    richTextBox2.Text = "Salada tropical com frutas e folhas verdes.";
+                   
                     break;
                  
                 case "Massa com Pesto":
+                    valorprato = 32.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.massapesto;
-                    richTextBox2.Text = "Massa com molho pesto e queijo parmesão.";
                     break;
 
                 case "Frango com Ervilha":
+                    valorprato = 33.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.frangoevrilha;
-                    richTextBox2.Text = "Frango com ervilhas e molho cremoso.";
                     break;
 
                 case "Peixe Primavera":
+                    valorprato = 39.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.peixeprima;
-                    richTextBox2.Text = "Peixe primavera com legumes frescos.";
                     break;
 
                 case "Sanduíche Natural":
+                    valorprato = 22.00m;
+                    label1.Text = valorprato.ToString("C2");
                     pictureBox1.Image = Properties.Resources.sanduiche;
-                    richTextBox2.Text = "Sanduíche natural com pão integral e vegetais.";
                     break;
 
                 case "Suco Tropical":
+                    valorbebida = 13.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.sucotropical;
-                    richTextBox3.Text = "Suco tropical com frutas da estação.";
                     break;
 
                 case "Limonada Rosa":
+                    valorbebida = 12.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.limonadarosa;
-                    richTextBox3.Text = "Limonada rosa com frutas vermelhas.";
                     break;
 
                 case "Smoothie":
-                    pictureBox1.Image = Properties.Resources.smoothie;
-                    richTextBox3.Text = "Smoothie de frutas variadas.";
+                    valorbebida = 16.00m;
+                    label3.Text = valorbebida.ToString("C2");
+                    pictureBox2.Image = Properties.Resources.smoothie;
                     break;
 
                 case "Chá de Pêssego":
+                    valorbebida = 10.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.chapessego;
-                    richTextBox3.Text = "Chá de pêssego com hortelã.";
                     break;
 
                 case "Vitamina":
+                    valorbebida = 13.00m;
+                    label3.Text = valorbebida.ToString("C2");
                     pictureBox2.Image = Properties.Resources.vitamina;
-                    richTextBox3.Text = "Vitamina de frutas com leite.";
                     break;
 
                 case "Torta de Limão":
+                    valorsobremesa = 14.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.tortalimao;
-                    richTextBox4.Text = "Torta de limão com merengue.";
                     break;
 
                 case "Gelatina Colorida":
+                    valorsobremesa = 9.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.gelatinacolorida;
-                    richTextBox4.Text = "Gelatina colorida com frutas.";
                     break;
 
                 case "Mousse":
+                    valorsobremesa = 12.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.mousse;
-                    richTextBox4.Text = "Mousse de chocolate com chantilly.";
                     break;
 
                 case "Pavlova":
+                    valorsobremesa = 18.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.pavlova;
-                    richTextBox4.Text = "Pavlova com frutas frescas e merengue.";
                     break;
 
                 case "Pannacotta":
+                    valorsobremesa = 15.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.pannacotta;
-                    richTextBox4.Text = "Pannacotta com calda de frutas vermelhas.";
                     break;
 
                 default:
+                    valorprato = 0;
+                    valorbebida = 0;
+                    valorsobremesa = 0;
                     pictureBox1.Image = null;
                     pictureBox2.Image = null;
                     pictureBox3.Image = null;
-                    richTextBox2.Clear();
-                    richTextBox3.Clear();
-                    richTextBox4.Clear();
                     break;
+
+                decimal subtotalPrato = valorprato*(decimal)numericUpDown1.Value;
+                 label6.Text = subtotalPrato.ToString("C2");
+                    decimal subtotalBebida = valorbebida*(decimal)numericUpDown2.Value;
+                decimal subtotalSobremesa = valorsobremesa * pedido.Where(i => i.Categoria == "Sobremesa").Sum(i => i.Quantidade);
             }
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            LimparSelecoes();
+
+            richTextBox1.Clear();
+
+            total = 0;
+            lista = "";
+            descricao = "";
 
         }
 
@@ -477,14 +560,82 @@ namespace Restaurante
         }
 
 
+    
         private void button2_Click(object sender, EventArgs e)
         {
+            if (pedido.Count == 0)
+            {
+                MessageBox.Show("Adicione pelo menos um item ao pedido!");
+                return;
+            }
 
+            total = 0;
+
+            foreach (ItemPedido item in pedido)
+            {
+                total += item.PrecoUnitario * item.Quantidade;
+            }
+
+            decimal desconto = 0;
+            decimal valorFinal = total;
+
+            if (total > 100)
+            {
+                desconto = total * 0.15m;
+                valorFinal = total - desconto;
+            }
+
+            richTextBox1.Clear();
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+            richTextBox1.AppendText("SOLSTÍCIO & EQUINÓCIO\n");
+            richTextBox1.AppendText(comboBox1.Text +"\n\n");
+
+            foreach (ItemPedido item in pedido)
+            {
+                decimal subtotal = item.PrecoUnitario * item.Quantidade;
+                richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+                richTextBox1.AppendText(
+                   item.Quantidade+"x " + item.Nome + " - " + subtotal.ToString("C2") + "\n\n"
+                );
+            }
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+            richTextBox1.AppendText("===========================\n");
+            richTextBox1.AppendText(
+                "Valor dos pedidos: " + total.ToString("C2") + "\n");
+
+            richTextBox1.AppendText(
+                "Desconto (15%): " + desconto.ToString("C2") + "\n\n");
+
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+            richTextBox1.AppendText(
+                "VALOR FINAL: " + valorFinal.ToString("C2") + "\n");
         }
+
+        
 
         private void cbEstacao_SelectedIndexChanged(object sender, EventArgs e)
         {
             Filtrar();
+            if (cbEstacao.Text == "Inverno")
+            {
+                BackColor = Color.LightBlue;
+            }
+            else if (cbEstacao.Text == "Verão")
+            {
+                BackColor = Color.FromArgb(255, 231, 89);
+            }
+            else if (cbEstacao.Text == "Outono")
+            {
+                BackColor = Color.SandyBrown;
+            }
+            else if (cbEstacao.Text == "Primavera")
+            {
+                BackColor = Color.FromArgb(229, 150, 190);
+            }
+            else
+            {
+                BackColor = Color.LightSalmon;
+            }
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -549,26 +700,31 @@ namespace Restaurante
             AdicionarItem(
                 cbPrato.Text,
                 "Prato Principal",
-                (int)numericUpDown1.Value
+                (int)numericUpDown1.Value,
+                valorprato
             );
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
-            {
-                AdicionarItem(
-                    cbBebida.Text,
-                    "Bebida",
-                    (int)numericUpDown2.Value
-                );
-            }
+            AdicionarItem(
+                cbBebida.Text,
+                "Bebida",
+                (int)numericUpDown2.Value,
+                valorbebida
+            );
         }
 
         private void cbPrato_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
             BuscarItem(cbPrato.Text);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+          LimparSelecoes();
+            comboBox1.SelectedIndex = -1;
+
         }
 
         private void cbBebida_SelectedIndexChanged(object sender, EventArgs e)
@@ -618,6 +774,8 @@ namespace Restaurante
 
         }
 
+       
+
         private void CheckBoxSobremesa_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBoxAtual = sender as CheckBox;
@@ -664,10 +822,10 @@ namespace Restaurante
                 }
 
                 AdicionarItem(
-                    checkBoxAtual.Text,
-                    "Sobremesa",
-                    (int)quantidade.Value
-                );
+                     checkBoxAtual.Text,
+                     "Sobremesa",
+                    (int)quantidade.Value,
+                     valorsobremesa);
 
                 quantidade.Visible = true;
             }
@@ -680,8 +838,6 @@ namespace Restaurante
 
                 quantidade.Visible = false;
                 quantidade.Value = 1;
-                pictureBox1.Image = null;
-                richTextBox4.Clear();
                 pictureBox3.Image = null;
                 AtualizarPedido();
 
@@ -715,6 +871,52 @@ namespace Restaurante
                 item.Quantidade = (int)quantidade.Value;
                 AtualizarPedido();
             }
+        }
+        private void LimparSelecoes()
+        {
+            cbEstacao.SelectedIndex = -1;
+            cbPrato.SelectedIndex = -1;
+            cbBebida.SelectedIndex = -1;
+
+            numericUpDown1.Value = 0;
+            numericUpDown2.Value = 0;
+
+            foreach (Control linha in flowLayoutPanel1.Controls)
+            {
+                if (linha is FlowLayoutPanel painel)
+                {
+                    CheckBox checkBox = painel.Controls[0] as CheckBox;
+                    NumericUpDown quantidade =
+                        painel.Controls[1] as NumericUpDown;
+
+                    if (checkBox != null)
+                    {
+                        checkBox.Checked = false;
+                    }
+
+                    if (quantidade != null)
+                    {
+                        quantidade.Value = 1;
+                        quantidade.Visible = false;
+                    }
+                }
+            }
+
+            pedido.Clear();
+            AtualizarPedido();
+
+            valorprato = 0;
+            valorbebida = 0;
+            valorsobremesa = 0;
+
+            label1.Text = "";
+            label3.Text = "";
+            label5.Text = "";
+            label6.Text = "";
+
+            pictureBox1.Image = null;
+            pictureBox2.Image = null;
+            pictureBox3.Image = null;
         }
     }
 

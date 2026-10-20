@@ -273,5 +273,20 @@
   <ItemGroup>
     <None Include="Resources\vinhoquente.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geralbk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\primaverabk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\veraobk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outubrobk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invernobk.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

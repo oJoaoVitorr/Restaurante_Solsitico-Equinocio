@@ -343,6 +343,26 @@ namespace Restaurante.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap geralbk {
+            get {
+                object obj = ResourceManager.GetObject("geralbk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap invernobk {
+            get {
+                object obj = ResourceManager.GetObject("invernobk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lasanha {
             get {
                 object obj = ResourceManager.GetObject("lasanha", resourceCulture);
@@ -423,6 +443,16 @@ namespace Restaurante.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap outubrobk {
+            get {
+                object obj = ResourceManager.GetObject("outubrobk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pannacotta {
             get {
                 object obj = ResourceManager.GetObject("pannacotta", resourceCulture);
@@ -466,6 +496,16 @@ namespace Restaurante.Properties {
         internal static System.Drawing.Bitmap peracanela {
             get {
                 object obj = ResourceManager.GetObject("peracanela", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap primaverabk {
+            get {
+                object obj = ResourceManager.GetObject("primaverabk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -636,6 +676,16 @@ namespace Restaurante.Properties {
         internal static System.Drawing.Bitmap tortasalgada {
             get {
                 object obj = ResourceManager.GetObject("tortasalgada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap veraobk {
+            get {
+                object obj = ResourceManager.GetObject("veraobk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
