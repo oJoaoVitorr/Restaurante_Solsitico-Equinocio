@@ -16,5 +16,16 @@ namespace Restaurante
         {
             InitializeComponent();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            progressBar1.PerformStep();
+            label1.Text = "Iniciando..." + progressBar1.Value.ToString() + "%";
+        }
     }
 }

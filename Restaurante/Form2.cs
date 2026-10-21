@@ -537,7 +537,7 @@ namespace Restaurante
                     break;
 
                 decimal subtotalPrato = valorprato*(decimal)numericUpDown1.Value;
-                 label6.Text = subtotalPrato.ToString("C2");
+                 //label6.Text = subtotalPrato.ToString("C2");
                     decimal subtotalBebida = valorbebida*(decimal)numericUpDown2.Value;
                 decimal subtotalSobremesa = valorsobremesa * pedido.Where(i => i.Categoria == "Sobremesa").Sum(i => i.Quantidade);
             }
@@ -735,19 +735,21 @@ namespace Restaurante
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            groupBox5.Visible = true;
-            groupBox2.Visible = true;
-            groupBox3.Visible = true;
-            groupBox4.Visible = true;
-            label2.Visible = true;
-            label4.Visible = true;      
-            listBox1.Visible = true;
-            button1.Visible = true;
-            button2.Visible = true;
-            button3.Visible = true;
-            button6.Visible = true;
-            richTextBox1.Visible = true;
+           /* groupBox5.Visible = false;
+            groupBox2.Visible = false;
+            groupBox3.Visible = false;
+            groupBox4.Visible = false;
+            label2.Visible = false;
+            label4.Visible = false;      
+            listBox1.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button6.Visible = false;
+            richTextBox1.Visible = false;*/
         }
+
+        
 
         private void MostrarSobremesas(string estacao)
         {
@@ -929,7 +931,7 @@ namespace Restaurante
             label1.Text = "";
             label3.Text = "";
             label5.Text = "";
-            label6.Text = "";
+            //label6.Text = "";
 
             pictureBox1.Image = null;
             pictureBox2.Image = null;
