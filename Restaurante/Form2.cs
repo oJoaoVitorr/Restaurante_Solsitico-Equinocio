@@ -732,6 +732,23 @@ namespace Restaurante
           
             BuscarItem(cbBebida.Text);
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            groupBox5.Visible = true;
+            groupBox2.Visible = true;
+            groupBox3.Visible = true;
+            groupBox4.Visible = true;
+            label2.Visible = true;
+            label4.Visible = true;      
+            listBox1.Visible = true;
+            button1.Visible = true;
+            button2.Visible = true;
+            button3.Visible = true;
+            button6.Visible = true;
+            richTextBox1.Visible = true;
+        }
+
         private void MostrarSobremesas(string estacao)
         {
             flowLayoutPanel1.Controls.Clear();
