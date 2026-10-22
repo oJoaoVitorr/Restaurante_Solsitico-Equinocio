@@ -92,6 +92,7 @@ namespace Restaurante
         private List<ItemPedido> pedido = new List<ItemPedido>();
         private List<CheckBox> checkboxes = new List<CheckBox>();
         private bool atualizandoFiltro = false;
+        bool pedidoFinalizado = false;
 
 
         public class ItemPedido
@@ -115,6 +116,17 @@ namespace Restaurante
                 int quantidade,
                 decimal precoUnitario)
         {
+            if (pedidoFinalizado)
+            {
+                MessageBox.Show(
+                    "Este pedido já foi finalizado!\n" +
+                    "Não é possível adicionar novos itens.",
+                    "Pedido finalizado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
             if (string.IsNullOrWhiteSpace(nome) || quantidade < 1)
                 return;
 
@@ -544,6 +556,17 @@ namespace Restaurante
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (pedidoFinalizado)
+            {
+                MessageBox.Show(
+                    "O pedido já foi finalizado. " +
+                    "Não é possível modificá-lo.",
+                    "Pedido finalizado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
             LimparSelecoes();
 
             richTextBox1.Clear();
@@ -609,6 +632,25 @@ namespace Restaurante
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
             richTextBox1.AppendText(
                 "VALOR FINAL: " + valorFinal.ToString("C2") + "\n");
+          
+            pedidoFinalizado = true;
+
+            foreach (Control linha in flowLayoutPanel1.Controls)
+            {
+                if (linha is FlowLayoutPanel painel)
+                {
+                    foreach (Control controle in painel.Controls)
+                    {
+                        controle.Enabled = false;
+                    }
+                }
+            }
+            MessageBox.Show(
+                "Pedido finalizado com sucesso!\n" +
+                "Não é mais possível alterar os itens.",
+                "Pedido finalizado",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         
@@ -668,14 +710,6 @@ namespace Restaurante
         {
             string estacao = cbEstacao.Text;
 
-            pedido.RemoveAll(item =>
-                item.Categoria == "Sobremesa" &&
-                estacao != "" &&
-                !alimento.Any(a =>
-                    a.Nome == item.Nome &&
-                    a.Categoria == "Sobremesa" &&
-                    a.Estacao == estacao));
-
             cbPrato.Items.Clear();
             cbBebida.Items.Clear();
 
@@ -722,7 +756,8 @@ namespace Restaurante
 
         private void button6_Click(object sender, EventArgs e)
         {
-          LimparSelecoes();
+            pedidoFinalizado = false;
+            LimparSelecoes();
             comboBox1.SelectedIndex = -1;
 
         }
@@ -735,65 +770,118 @@ namespace Restaurante
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* groupBox5.Visible = false;
-            groupBox2.Visible = false;
-            groupBox3.Visible = false;
-            groupBox4.Visible = false;
-            label2.Visible = false;
-            label4.Visible = false;      
-            listBox1.Visible = false;
-            button1.Visible = false;
-            button2.Visible = false;
-            button3.Visible = false;
-            button6.Visible = false;
-            richTextBox1.Visible = false;*/
+            if (comboBox1.SelectedIndex != -1)
+            {
+                flowLayoutPanel1.Visible = true;
+                numericUpDown1.Visible = true;
+                numericUpDown2.Visible = true;
+                label1.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+                label5.Visible = true;
+                label7.Visible = true;
+                pictureBox1.Visible = true;
+                pictureBox2.Visible = true;
+                pictureBox3.Visible = true;
+                cbEstacao.Visible = true;
+                cbBebida.Visible = true;
+                cbPrato.Visible = true;
+                listBox1.Visible = true;
+                button1.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+                button4.Visible = true;
+                button5.Visible = true;
+                button6.Visible = true;
+                richTextBox1.Visible = true;
+            }
+            else
+            {
+                flowLayoutPanel1.Visible = false;
+                numericUpDown1.Visible = false;
+                numericUpDown2.Visible = false;
+                pictureBox1.Visible = false;
+                pictureBox2.Visible = false;
+                pictureBox3.Visible = false;
+                cbEstacao.Visible = false;
+                cbBebida.Visible = false;
+                cbPrato.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
+                label7.Visible = false;
+                listBox1.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+                button5.Visible = false;
+                button6.Visible = false;
+                richTextBox1.Visible = false;
+            }
+           
         }
 
-        
+
 
         private void MostrarSobremesas(string estacao)
         {
             flowLayoutPanel1.Controls.Clear();
 
-            foreach (Alimento alimento in alimento)
+            foreach (Alimento alimentoAtual in alimento)
             {
-                if (alimento.Categoria == "Sobremesa")
+                if (alimentoAtual.Categoria == "Sobremesa" &&
+                    (estacao == "" || alimentoAtual.Estacao == estacao))
                 {
-                    if (estacao == "" || alimento.Estacao == estacao)
+                    FlowLayoutPanel linha = new FlowLayoutPanel();
+                    linha.AutoSize = true;
+                    linha.WrapContents = false;
+
+                    CheckBox checkBox = new CheckBox();
+                    checkBox.Text = alimentoAtual.Nome;
+                    checkBox.AutoSize = false;
+                    checkBox.Width = 220;
+                    checkBox.Margin = new Padding(5);
+
+                    ItemPedido itemExistente = pedido.Find(i =>
+                        i.Nome == alimentoAtual.Nome &&
+                        i.Categoria == "Sobremesa");
+
+                    NumericUpDown quantidade = new NumericUpDown();
+                    quantidade.Minimum = 1;
+                    quantidade.Maximum = 5;
+                    quantidade.Width = 50;
+                    quantidade.ReadOnly = true;
+                    quantidade.Font = new Font(
+                        "Microsoft Sans Serif", 15, FontStyle.Bold);
+
+                    if (itemExistente != null)
                     {
-                        CheckBox checkBox = new CheckBox();
-                        FlowLayoutPanel linha = new FlowLayoutPanel();
-
-                        linha.AutoSize = true;
-                        linha.WrapContents = false;
-
-                        checkBox.Text = alimento.Nome;
-                        checkBox.AutoSize = false;
-                        checkBox.Width = 220;
-                        checkBox.Margin = new Padding(5);
-                        checkBox.CheckedChanged += CheckBoxSobremesa_CheckedChanged;
-
-
-                        NumericUpDown quantidade = new NumericUpDown();
-
-                        quantidade.Minimum = 1;
-                        quantidade.Maximum = 5;
-                        quantidade.Value = 1;
-                        quantidade.Width = 50;
-                        quantidade.Visible = false;
-                        quantidade.ValueChanged += QuantidadeSobremesa_ValueChanged;
-                        linha.Controls.Add(checkBox);
-                        linha.Controls.Add(quantidade);
-
-
-                        flowLayoutPanel1.Controls.Add(linha);
+                        checkBox.Checked = true;
+                        quantidade.Value = itemExistente.Quantidade;
+                        quantidade.Visible = true;
                     }
+                    else
+                    {
+                        quantidade.Value = 1;
+                        quantidade.Visible = false;
+                    }
+
+                    linha.Controls.Add(checkBox);
+                    linha.Controls.Add(quantidade);
+
+                    checkBox.CheckedChanged += CheckBoxSobremesa_CheckedChanged;
+                    quantidade.ValueChanged += QuantidadeSobremesa_ValueChanged;
+
+                    flowLayoutPanel1.Controls.Add(linha);
                 }
             }
-
         }
 
-       
+
 
         private void CheckBoxSobremesa_CheckedChanged(object sender, EventArgs e)
         {
@@ -813,6 +901,25 @@ namespace Restaurante
             if (quantidade == null)
                 return;
 
+            if (pedidoFinalizado && !atualizandoFiltro)
+            {
+                atualizandoFiltro = true;
+
+                checkBoxAtual.Checked = pedido.Any(i =>
+                    i.Nome == checkBoxAtual.Text &&
+                    i.Categoria == "Sobremesa");
+
+                atualizandoFiltro = false;
+
+                MessageBox.Show(
+                    "Este pedido já foi finalizado!\n" +
+                    "Não é possível alterar as sobremesas.",
+                    "Pedido finalizado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
             if (checkBoxAtual.Checked)
             {
                 BuscarItem(checkBoxAtual.Text);
@@ -882,8 +989,25 @@ namespace Restaurante
 
             ItemPedido item = pedido.Find(i =>
                 i.Nome == checkBox.Text &&
-                i.Categoria == "Sobremesa"
-            );
+                i.Categoria == "Sobremesa");
+
+            if (pedidoFinalizado)
+            {
+                if (item != null)
+                {
+                    quantidade.Value = item.Quantidade;
+                }
+
+                quantidade.Enabled = false;
+
+                MessageBox.Show(
+                    "Este pedido já foi finalizado! Não é possível alterar a quantidade.",
+                    "Pedido finalizado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
 
             if (item != null)
             {
@@ -894,8 +1018,8 @@ namespace Restaurante
         private void LimparSelecoes()
         {
             cbEstacao.SelectedIndex = -1;
-            cbPrato.SelectedIndex = -1;
-            cbBebida.SelectedIndex = -1;
+            cbPrato.Text = "";
+            cbBebida.Text = "";
 
             numericUpDown1.Value = 0;
             numericUpDown2.Value = 0;
@@ -931,7 +1055,6 @@ namespace Restaurante
             label1.Text = "";
             label3.Text = "";
             label5.Text = "";
-            //label6.Text = "";
 
             pictureBox1.Image = null;
             pictureBox2.Image = null;
