@@ -27,17 +27,19 @@ namespace Restaurante
                 new Alimento("Massa Fria", "Verão", "Prato Principal"),
                 new Alimento("Limonada", "Verão", "Bebida"),
                 new Alimento("Água de Coco", "Verão", "Bebida"),
-                new Alimento("Suco Natural", "Verão", "Bebida"),
                 new Alimento("Cerveja", "Verão", "Bebida"),
-                new Alimento("Refrigerante", "Verão", "Bebida"),
+                new Alimento("Sprite", "Verão", "Bebida"),
+                new Alimento("Coca-Cola", "Verão", "Bebida"),
+                new Alimento("Pepsi", "Verão", "Bebida"),
+                new Alimento("Guaraná", "Verão", "Bebida"),
                 new Alimento("Sorvete", "Verão", "Sobremesa"),
                 new Alimento("Salada de Frutas", "Verão", "Sobremesa"),
-                new Alimento("Gelatina", "Verão", "Sobremesa"),
                 new Alimento("Açaí", "Verão", "Sobremesa"),
                 new Alimento("Pavê", "Verão", "Sobremesa"),
+                new Alimento("Bolo de coco Gelado", "Verão", "Sobremesa"),
 
         //INVERNO
-                new Alimento("Sopa", "Inverno", "Prato Principal"),
+                new Alimento("Sopa de Carne", "Inverno", "Prato Principal"),
                 new Alimento("Fondue de Queijo", "Inverno", "Prato Principal"),
                 new Alimento("Batata Gratinada", "Inverno", "Prato Principal"),
                 new Alimento("Escondidinho", "Inverno", "Prato Principal"),
@@ -84,7 +86,8 @@ namespace Restaurante
                 new Alimento("Vitamina", "Primavera", "Bebida"),
                 new Alimento("Torta de Limão", "Primavera", "Sobremesa"),
                 new Alimento("Gelatina Colorida", "Primavera", "Sobremesa"),
-                new Alimento("Mousse", "Primavera", "Sobremesa"),
+                new Alimento("Mousse de Morango", "Primavera", "Sobremesa"),
+                new Alimento("Mousse de Maracujá", "Primavera", "Sobremesa"),
                 new Alimento("Pavlova", "Primavera", "Sobremesa"),
                 new Alimento("Pannacotta", "Primavera", "Sobremesa")
         };
@@ -216,12 +219,6 @@ namespace Restaurante
                     pictureBox2.Image = Properties.Resources.aguadecoco;
                     break;
 
-                case "Suco Natural":
-                    valorbebida = 12.00m;
-                    label3.Text = valorbebida.ToString("C2");
-                    pictureBox2.Image = Properties.Resources.suco;
-                    break;
-
                 case "Cerveja":
                     valorbebida = 14.00m;
                     label3.Text = valorbebida.ToString("C2");
@@ -229,12 +226,29 @@ namespace Restaurante
                     break;
                    
 
-                case "Refrigerante":
+                case "Sprite":
                     valorbebida = 7.00m;
                     label3.Text = valorbebida.ToString("C2");
-                    pictureBox2.Image = Properties.Resources.refrigerante;
+                    pictureBox2.Image = Properties.Resources.sprite;
                     break;
 
+                case "Coca-Cola":
+                    valorbebida = 7.00m;
+                    label3.Text = valorbebida.ToString("C2");
+                    pictureBox2.Image = Properties.Resources.cocacola;
+                    break;
+
+                case "Pepsi":
+                    valorbebida = 7.00m;
+                    label3.Text = valorbebida.ToString("C2");
+                    pictureBox2.Image = Properties.Resources.pepsi;
+                    break;
+
+                case "Guaraná":
+                    valorbebida = 7.00m;
+                    label3.Text = valorbebida.ToString("C2");
+                    pictureBox2.Image = Properties.Resources.guarana;
+                    break;
                 case "Sorvete":
                     valorsobremesa = 12.00m;
                     label5.Text = valorsobremesa.ToString("C2");
@@ -247,10 +261,10 @@ namespace Restaurante
                     pictureBox3.Image = Properties.Resources.saladadefrutas;
                     break;
 
-                case "Gelatina":
-                    valorsobremesa = 7.00m;
+                case "Bolo de Coco Gelado":
+                    valorsobremesa = 10.00m;
                     label5.Text = valorsobremesa.ToString("C2");
-                    pictureBox3.Image = Properties.Resources.gelatina;
+                    pictureBox3.Image = Properties.Resources.bologelado;
                     break;
 
                 case "Açaí":
@@ -266,10 +280,10 @@ namespace Restaurante
                     break;
                     
                     //INVERNO
-                case "Sopa":
+                case "Sopa de Carne":
                     valorprato = 22.00m;
                     label1.Text = valorprato.ToString("C2");
-                    pictureBox1.Image = Properties.Resources.sopalegumes;
+                    pictureBox1.Image = Properties.Resources.sopacarne;
                     break;
 
                 case "Fondue de Queijo":
@@ -521,10 +535,16 @@ namespace Restaurante
                     pictureBox3.Image = Properties.Resources.gelatinacolorida;
                     break;
 
-                case "Mousse":
+                case "Mousse de Morango":
                     valorsobremesa = 12.00m;
                     label5.Text = valorsobremesa.ToString("C2");
-                    pictureBox3.Image = Properties.Resources.mousse;
+                    pictureBox3.Image = Properties.Resources.moussemorango;
+                    break;
+
+                case "Mousse de Maracujá":
+                    valorsobremesa = 12.00m;
+                    label5.Text = valorsobremesa.ToString("C2");
+                    pictureBox3.Image = Properties.Resources.moussemaracuja;
                     break;
 
                 case "Pavlova":
@@ -602,7 +622,7 @@ namespace Restaurante
             decimal desconto = 0;
             decimal valorFinal = total;
 
-            if (total > 100)
+            if (total > 150)
             {
                 desconto = total * 0.10m;
                 valorFinal = total - desconto;
@@ -659,28 +679,39 @@ namespace Restaurante
             Filtrar();
             if (cbEstacao.Text == "Inverno")
             {
-                BackColor = Color.LightBlue;
+               // BackColor = Color.LightBlue;
+               //BackgroundImage = Properties.Resources.invernobk;
+                BackgroundImage = Properties.Resources.invernobkesc;
             }
             else if (cbEstacao.Text == "Verão")
             {
-                BackColor = Color.FromArgb(255, 231, 89);
+                // BackColor = Color.FromArgb(255, 231, 89);
+                // BackgroundImage = Properties.Resources.veraobk;
+                BackgroundImage = Properties.Resources.veraobkesc;
             }
             else if (cbEstacao.Text == "Outono")
             {
-                BackColor = Color.SandyBrown;
+              //  BackColor = Color.SandyBrown;
+             // BackgroundImage = Properties.Resources.outubrobk;
+                BackgroundImage = Properties.Resources.outonobkesc;
             }
             else if (cbEstacao.Text == "Primavera")
             {
-                BackColor = Color.FromArgb(229, 150, 190);
+               // BackColor = Color.FromArgb(229, 150, 190);
+               //BackgroundImage = Properties.Resources.primaverabk;
+                BackgroundImage = Properties.Resources.primaverabkesc;
             }
-            else
+            else if(cbEstacao.Text == "Completo")
             {
-                BackColor = Color.LightSalmon;
+               // BackColor = Color.LightSalmon;
+               // BackgroundImage = Properties.Resources.geralbk;
+               BackgroundImage = Properties.Resources.geralbkesc;
             }
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            cbEstacao.Items.Add("Completo");
             cbEstacao.Items.Add("Primavera");
             cbEstacao.Items.Add("Verão");
             cbEstacao.Items.Add("Outono");
@@ -691,7 +722,6 @@ namespace Restaurante
         public Form2()
         {
             InitializeComponent();
-
         }
 
 
@@ -714,7 +744,7 @@ namespace Restaurante
 
             foreach (Alimento item in alimento)
             {
-                if (estacao == "" || item.Estacao == estacao)
+                if (estacao == "Completo" || estacao == "" || item.Estacao == estacao)
                 {
                     if (item.Categoria == "Prato Principal")
                         cbPrato.Items.Add(item.Nome);
@@ -780,6 +810,9 @@ namespace Restaurante
                 label4.Visible = true;
                 label5.Visible = true;
                 label7.Visible = true;
+                label8.Visible = true;
+                label9.Visible = true;
+                label10.Visible = true;
                 pictureBox1.Visible = true;
                 pictureBox2.Visible = true;
                 pictureBox3.Visible = true;
@@ -812,6 +845,9 @@ namespace Restaurante
                 label4.Visible = false;
                 label5.Visible = false;
                 label7.Visible = false;
+                label8.Visible = false;
+                label9.Visible = false;
+                label10.Visible = false;
                 listBox1.Visible = false;
                 button1.Visible = false;
                 button2.Visible = false;
@@ -824,7 +860,10 @@ namespace Restaurante
            
         }
 
+        private void label9_Click(object sender, EventArgs e)
+        {
 
+        }
 
         private void MostrarSobremesas(string estacao)
         {
@@ -833,7 +872,7 @@ namespace Restaurante
             foreach (Alimento alimentoAtual in alimento)
             {
                 if (alimentoAtual.Categoria == "Sobremesa" &&
-                    (estacao == "" || alimentoAtual.Estacao == estacao))
+                    (estacao == "Completo" || alimentoAtual.Estacao == estacao))
                 {
                     FlowLayoutPanel linha = new FlowLayoutPanel();
                     linha.AutoSize = true;
@@ -844,6 +883,8 @@ namespace Restaurante
                     checkBox.AutoSize = false;
                     checkBox.Width = 220;
                     checkBox.Margin = new Padding(5);
+                    checkBox.Font = new Font(
+                        "Trebuchet MS", 12, FontStyle.Bold);
 
                     ItemPedido itemExistente = pedido.Find(i =>
                         i.Nome == alimentoAtual.Nome &&
@@ -908,16 +949,7 @@ namespace Restaurante
                     i.Nome == checkBoxAtual.Text &&
                     i.Categoria == "Sobremesa");
 
-                atualizandoFiltro = false;
-
-                MessageBox.Show(
-                    "Este pedido já foi finalizado!\n" +
-                    "Não é possível alterar as sobremesas.",
-                    "Pedido finalizado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
+                
             }
             if (checkBoxAtual.Checked)
             {
@@ -997,15 +1029,7 @@ namespace Restaurante
                     quantidade.Value = item.Quantidade;
                 }
 
-                quantidade.Enabled = false;
 
-                MessageBox.Show(
-                    "Este pedido já foi finalizado! Não é possível alterar a quantidade.",
-                    "Pedido finalizado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
             }
 
             if (item != null)

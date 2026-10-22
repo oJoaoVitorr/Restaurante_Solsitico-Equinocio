@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -77,6 +92,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="fonte\Aclonica.ttf" />
+    <None Include="fonte\Kurale-Regular.ttf" />
+    <None Include="fonte\Stay With Me.otf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -287,6 +305,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\invernobk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geralbkesc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invernobkesc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outonobkesc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\primaverabkesc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\veraobkesc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bologelado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cocacola.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guarana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\moussemaracuja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\moussemorango.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pepsi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Solstício &amp; Equinócio nas Quatro Estações.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solsticio_equinocio_1200x800.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sopacarne.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
