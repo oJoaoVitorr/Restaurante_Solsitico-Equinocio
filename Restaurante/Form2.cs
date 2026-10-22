@@ -604,7 +604,7 @@ namespace Restaurante
 
             if (total > 100)
             {
-                desconto = total * 0.15m;
+                desconto = total * 0.10m;
                 valorFinal = total - desconto;
             }
 
@@ -624,10 +624,10 @@ namespace Restaurante
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
             richTextBox1.AppendText("===========================\n");
             richTextBox1.AppendText(
-                "Valor dos pedidos: " + total.ToString("C2") + "\n");
+                "Valor do pedido: " + total.ToString("C2") + "\n");
 
             richTextBox1.AppendText(
-                "Desconto (15%): " + desconto.ToString("C2") + "\n\n");
+                "Desconto (10%): " + desconto.ToString("C2") + "\n\n");
 
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
             richTextBox1.AppendText(
@@ -646,8 +646,7 @@ namespace Restaurante
                 }
             }
             MessageBox.Show(
-                "Pedido finalizado com sucesso!\n" +
-                "Não é mais possível alterar os itens.",
+                "Pedido finalizado com sucesso!",
                 "Pedido finalizado",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
@@ -856,7 +855,7 @@ namespace Restaurante
                     quantidade.Width = 50;
                     quantidade.ReadOnly = true;
                     quantidade.Font = new Font(
-                        "Microsoft Sans Serif", 15, FontStyle.Bold);
+                        "Trebuchet MS", 18, FontStyle.Bold);
 
                     if (itemExistente != null)
                     {
