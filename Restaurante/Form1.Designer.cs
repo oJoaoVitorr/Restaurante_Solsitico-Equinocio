@@ -50,8 +50,8 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.progressBar1.BackColor = System.Drawing.Color.LightCyan;
+            this.progressBar1.ForeColor = System.Drawing.Color.LightBlue;
             this.progressBar1.Location = new System.Drawing.Point(53, 664);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1084, 42);
@@ -65,7 +65,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(569, 637);
+            this.label1.Location = new System.Drawing.Point(542, 637);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 24);
             this.label1.TabIndex = 1;

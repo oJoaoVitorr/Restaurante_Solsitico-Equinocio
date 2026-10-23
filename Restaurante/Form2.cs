@@ -16,7 +16,7 @@ namespace Restaurante
     public partial class Form2 : Form
     {
         decimal valorprato = 0, valorbebida = 0, valorsobremesa = 0, total = 0;
-        string lista = "", descricao = "";
+        string lista = "";
 
         List<Alimento> alimento = new List<Alimento> {  
         //VERÃO
@@ -93,7 +93,6 @@ namespace Restaurante
         };
 
         private List<ItemPedido> pedido = new List<ItemPedido>();
-        private List<CheckBox> checkboxes = new List<CheckBox>();
         private bool atualizandoFiltro = false;
         bool pedidoFinalizado = false;
 
@@ -568,10 +567,10 @@ namespace Restaurante
                     pictureBox3.Image = null;
                     break;
 
-                decimal subtotalPrato = valorprato*(decimal)numericUpDown1.Value;
+                //decimal subtotalPrato = valorprato*(decimal)numericUpDown1.Value;
                  //label6.Text = subtotalPrato.ToString("C2");
-                    decimal subtotalBebida = valorbebida*(decimal)numericUpDown2.Value;
-                decimal subtotalSobremesa = valorsobremesa * pedido.Where(i => i.Categoria == "Sobremesa").Sum(i => i.Quantidade);
+                    //decimal subtotalBebida = valorbebida*(decimal)numericUpDown2.Value;
+               // decimal subtotalSobremesa = valorsobremesa * pedido.Where(i => i.Categoria == "Sobremesa").Sum(i => i.Quantidade);
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -593,7 +592,6 @@ namespace Restaurante
 
             total = 0;
             lista = "";
-            descricao = "";
 
         }
 
@@ -785,9 +783,11 @@ namespace Restaurante
 
         private void button6_Click(object sender, EventArgs e)
         {
+            
             pedidoFinalizado = false;
             LimparSelecoes();
             comboBox1.SelectedIndex = -1;
+            richTextBox1.Clear();
 
         }
 
@@ -860,10 +860,6 @@ namespace Restaurante
            
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void MostrarSobremesas(string estacao)
         {
@@ -949,7 +945,7 @@ namespace Restaurante
                     i.Nome == checkBoxAtual.Text &&
                     i.Categoria == "Sobremesa");
 
-                
+                atualizandoFiltro = false;
             }
             if (checkBoxAtual.Checked)
             {
@@ -998,8 +994,8 @@ namespace Restaurante
                 pictureBox3.Image = null;
                 AtualizarPedido();
 
-
             }
+           
         }
         private void QuantidadeSobremesa_ValueChanged(object sender, EventArgs e)
         {

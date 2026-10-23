@@ -428,7 +428,6 @@
             this.label9.TabIndex = 32;
             this.label9.Text = "Bebida";
             this.label9.Visible = false;
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
