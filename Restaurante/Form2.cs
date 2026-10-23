@@ -36,7 +36,7 @@ namespace Restaurante
                 new Alimento("Salada de Frutas", "Verão", "Sobremesa"),
                 new Alimento("Açaí", "Verão", "Sobremesa"),
                 new Alimento("Pavê", "Verão", "Sobremesa"),
-                new Alimento("Bolo de coco Gelado", "Verão", "Sobremesa"),
+                new Alimento("Bolo de Coco Gelado", "Verão", "Sobremesa"),
 
         //INVERNO
                 new Alimento("Sopa de Carne", "Inverno", "Prato Principal"),
@@ -455,7 +455,7 @@ namespace Restaurante
                     pictureBox3.Image = Properties.Resources.bolocenoura;
                     break;
 
-                case "Pera com Canela":
+                case "Pêra com Canela":
                     valorsobremesa = 12.00m;
                     label5.Text = valorsobremesa.ToString("C2");
                     pictureBox3.Image = Properties.Resources.peracanela;
@@ -872,7 +872,7 @@ namespace Restaurante
             foreach (Alimento alimentoAtual in alimento)
             {
                 if (alimentoAtual.Categoria == "Sobremesa" &&
-                    (estacao == "Completo" || alimentoAtual.Estacao == estacao))
+                    (estacao == "Completo" || estacao == ""|| alimentoAtual.Estacao == estacao))
                 {
                     FlowLayoutPanel linha = new FlowLayoutPanel();
                     linha.AutoSize = true;

@@ -147,7 +147,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 491);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 506);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(428, 231);
             this.flowLayoutPanel1.TabIndex = 9;
@@ -158,7 +158,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(447, 491);
+            this.pictureBox3.Location = new System.Drawing.Point(447, 506);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(230, 230);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,7 +172,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(683, 496);
+            this.label5.Location = new System.Drawing.Point(683, 511);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 35);
             this.label5.TabIndex = 21;
@@ -184,9 +184,9 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(852, 49);
+            this.listBox1.Location = new System.Drawing.Point(832, 48);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(280, 264);
+            this.listBox1.Size = new System.Drawing.Size(300, 264);
             this.listBox1.TabIndex = 5;
             this.listBox1.Visible = false;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
@@ -197,7 +197,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(946, 370);
+            this.label2.Location = new System.Drawing.Point(943, 368);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 35);
             this.label2.TabIndex = 8;
@@ -208,10 +208,10 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(852, 406);
+            this.richTextBox1.Location = new System.Drawing.Point(832, 406);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(280, 260);
+            this.richTextBox1.Size = new System.Drawing.Size(300, 260);
             this.richTextBox1.TabIndex = 9;
             this.richTextBox1.Text = "";
             this.richTextBox1.Visible = false;
@@ -275,9 +275,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(997, 315);
+            this.button1.Location = new System.Drawing.Point(987, 314);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 33);
+            this.button1.Size = new System.Drawing.Size(145, 33);
             this.button1.TabIndex = 11;
             this.button1.Text = "Limpar";
             this.button1.UseVisualStyleBackColor = false;
@@ -290,9 +290,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(852, 315);
+            this.button2.Location = new System.Drawing.Point(832, 314);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 33);
+            this.button2.Size = new System.Drawing.Size(145, 33);
             this.button2.TabIndex = 10;
             this.button2.Text = "Finalizar ";
             this.button2.UseVisualStyleBackColor = false;
@@ -306,7 +306,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1014, 714);
+            this.button3.Location = new System.Drawing.Point(1029, 729);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(143, 47);
             this.button3.TabIndex = 13;
@@ -321,7 +321,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(939, 11);
+            this.label4.Location = new System.Drawing.Point(943, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 35);
             this.label4.TabIndex = 17;
@@ -345,9 +345,9 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(852, 672);
+            this.button6.Location = new System.Drawing.Point(832, 672);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(280, 33);
+            this.button6.Size = new System.Drawing.Size(300, 33);
             this.button6.TabIndex = 12;
             this.button6.Text = "Novo Pedido";
             this.button6.UseVisualStyleBackColor = false;
@@ -436,7 +436,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(7, 454);
+            this.label10.Location = new System.Drawing.Point(7, 469);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(153, 35);
             this.label10.TabIndex = 33;
@@ -451,7 +451,7 @@
             this.BackgroundImage = global::Restaurante.Properties.Resources.geralbkesc;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.button3;
-            this.ClientSize = new System.Drawing.Size(1184, 749);
+            this.ClientSize = new System.Drawing.Size(1184, 788);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
