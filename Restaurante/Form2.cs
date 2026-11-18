@@ -591,7 +591,6 @@ namespace Restaurante
             richTextBox1.Clear();
 
             total = 0;
-            lista = "";
 
         }
 
@@ -652,6 +651,7 @@ namespace Restaurante
                 "VALOR FINAL: " + valorFinal.ToString("C2") + "\n");
           
             pedidoFinalizado = true;
+            comboBox1.Enabled = false;
 
             foreach (Control linha in flowLayoutPanel1.Controls)
             {
@@ -724,15 +724,7 @@ namespace Restaurante
 
 
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (var item in listBox1.Items)
-            {
-
-                lista += item.ToString() + "\n";
-
-            }
-        }
+ 
         private void Filtrar()
         {
             string estacao = cbEstacao.Text;
@@ -785,6 +777,17 @@ namespace Restaurante
         {
             
             pedidoFinalizado = false;
+            foreach (Control linha in flowLayoutPanel1.Controls)
+            {
+                if (linha is FlowLayoutPanel painel)
+                {
+                    foreach (Control controle in painel.Controls)
+                    {
+                        controle.Enabled = true;
+                    }
+                }
+            }
+            comboBox1.Enabled = true;
             LimparSelecoes();
             comboBox1.SelectedIndex = -1;
             richTextBox1.Clear();
